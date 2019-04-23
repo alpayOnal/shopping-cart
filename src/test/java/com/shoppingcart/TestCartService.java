@@ -21,11 +21,13 @@ class TestCartService {
 
     @BeforeAll
     static void beforeInstance() {
+
         cartService = new CartService();
     }
 
     @BeforeEach
     void initialize() {
+
         cartService.flush();
         cart1 = Cart.get_instance();
         cart2 = Cart.get_instance();
@@ -52,11 +54,13 @@ class TestCartService {
 
     @Test
     void testCartGetItemList() {
+
         assertEquals(cart1.getItemList().size(), cart2.getItemList().size());
     }
 
     @Test
     void testCheckProducts() {
+
         List<Item> itemList1 = cart1.getItemList();
         List<Item> itemList2 = cart2.getItemList();
 
@@ -67,6 +71,7 @@ class TestCartService {
 
     @Test
     void testCheckAdditem() {
+
         Category food = new Category("1", "food");
         Product banana = new Product("Banana", 100.0, food);
         cartService.addItem(banana, 3);
@@ -75,6 +80,7 @@ class TestCartService {
 
     @Test
     void testSetNumberOfProducts() {
+
         Category food = new Category("1", "food");
         Product banana = new Product("Banana", 50, food);
         cartService.addItem(banana, 5);
@@ -83,6 +89,7 @@ class TestCartService {
 
     @Test
     void testDeleteItem() {
+
         Category food = new Category("1", "food");
         Product apple = new Product("Apple", food);
         cartService.deleteItem(apple);
@@ -91,6 +98,7 @@ class TestCartService {
 
     @Test
     void testUpdateItem() {
+
         Category food = new Category("1", "food");
         Product apple = new Product("Apple", food);
         cartService.updateItem(apple, 8);
@@ -112,16 +120,19 @@ class TestCartService {
 
     @Test
     void testGetNumberOfProducts() {
+
         assertEquals(6, cartService.getNumberOfProducts());
     }
 
     @Test
     void testGetTotalAmount() {
+
         assertEquals(400, cartService.getTotalAmount());
     }
 
     @Test
     void testGetDeliveryCost() {
+
         DeliveryService ds = new DeliveryService(10, 8, 2.0);
         ds.calculateFor(Cart.get_instance());
         assertEquals(60.0, cartService.getDeliveryCost());
@@ -129,6 +140,7 @@ class TestCartService {
 
     @Test
     void testGetCampaignDiscount() {
+
         CampaignService campaignService = new CampaignService(Cart.get_instance());
         cartService.calculate();
         assertEquals(0.0, cartService.getCampaignDiscount());
@@ -136,6 +148,7 @@ class TestCartService {
 
     @Test
     void testGetCouponDiscount() {
+
         Coupon coupon = new Coupon(500.0, 10.0, DiscountType.Rate);
         cartService.applyCoupon(coupon);
 

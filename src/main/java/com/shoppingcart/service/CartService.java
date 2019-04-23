@@ -75,6 +75,7 @@ public class CartService implements IService{
 
 
     public void calculate() {
+
         this.calculateTotalAmount();
         this.calculateNumberOfProducts();
     }

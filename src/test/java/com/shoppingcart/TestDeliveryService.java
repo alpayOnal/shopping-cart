@@ -45,6 +45,7 @@ public class TestDeliveryService {
 
     @Test
     void testCalculate() {
+
         DeliveryService ds = new DeliveryService(10, 8, 2.99);
         ds.calculateFor(Cart.get_instance());
         ds.calculate();

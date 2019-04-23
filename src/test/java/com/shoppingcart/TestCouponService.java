@@ -23,6 +23,7 @@ public class TestCouponService {
 
     @BeforeEach
     void initialize() {
+
         cartService.flush();
 
         Category food = new Category("1", "food");
@@ -37,6 +38,7 @@ public class TestCouponService {
 
     @Test
     void testApplyCoupon() {
+
         Coupon coupon = new Coupon(100.0, 10.0, DiscountType.Rate);
         cartService.applyCoupon(coupon);
         assertEquals(40.0, cartService.getCouponDiscount());
@@ -44,6 +46,7 @@ public class TestCouponService {
 
     @Test
     void testCalculate() {
+
         Coupon coupon = new Coupon(100.0, 10.0, DiscountType.Rate);
         cartService.applyCoupon(coupon);
         Double totalDiscount = cartService.getTotalAmountAfterDiscount() - cartService.getCouponDiscount();

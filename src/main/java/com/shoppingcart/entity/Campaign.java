@@ -8,6 +8,7 @@ public class Campaign {
     private String discountType;
 
     public Campaign(Category category, double discount, Integer minProductCount, String discountType) {
+
         this.category = category;
         this.discount = discount;
         this.minProductCount = minProductCount;
