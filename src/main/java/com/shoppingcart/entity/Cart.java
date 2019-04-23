@@ -18,6 +18,9 @@ public class Cart {
 
     private static Cart instance = null;
 
+    public Cart() {
+    }
+
     public static Cart get_instance() {
         if (instance == null)
             instance = new Cart();

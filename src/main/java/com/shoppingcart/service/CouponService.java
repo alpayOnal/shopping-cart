@@ -19,6 +19,8 @@ public class CouponService implements IService {
             double discountCoupon = discountFactory.get(coupon.getDiscountType()).calculate(
                     this.cart.getTotalAmountAfterDiscount(), coupon.getDiscount());
             this.cart.setCouponDiscount(discountCoupon);
+        }else{
+            this.cart.setCouponDiscount(0.0);
         }
 
     }

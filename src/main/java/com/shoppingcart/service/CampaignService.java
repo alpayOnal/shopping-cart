@@ -56,8 +56,10 @@ public class CampaignService implements IService {
 
             Integer productCount = itemList.stream().filter(item -> item.getQuantity() > 0).mapToInt(item -> item.getQuantity()).sum();
 
-            if (productCount <= campaign.getMinProductCount())
+            if (productCount <= campaign.getMinProductCount()) {
+                itemList.forEach(item -> item.setCampaignDiscount(0.0));
                 continue;
+            }
 
 
             for (Item item : itemList) {

@@ -1,4 +1,8 @@
+package com.shoppingcart;
+
 import com.shoppingcart.entity.*;
+import com.shoppingcart.service.CampaignService;
+import com.shoppingcart.service.CouponService;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,7 +13,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class CartServiceTest {
+class TestCartService {
 
     private static CartService cartService;
     private static Cart cart1;
@@ -125,20 +129,18 @@ class CartServiceTest {
 
     @Test
     void testGetCampaignDiscount() {
-        Category food = new Category("1", "food");
-
-        Campaign discount1 = new Campaign(food, 20.0, 3, DiscountType.Rate);
-        Campaign discount2 = new Campaign(food, 50.0, 3, DiscountType.Rate);
-        Campaign discount3 = new Campaign(food, 5.0, 3, DiscountType.Amount);
-
-        cartService.applyDiscounts(discount1, discount2, discount3);
-        assertEquals(200.0, cartService.getCampaignDiscount());
+        CampaignService campaignService = new CampaignService(Cart.get_instance());
+        cartService.calculate();
+        assertEquals(0.0, cartService.getCampaignDiscount());
     }
 
     @Test
     void testGetCouponDiscount() {
-        Coupon coupon = new Coupon(100.0, 10.0, DiscountType.Rate);
+        Coupon coupon = new Coupon(500.0, 10.0, DiscountType.Rate);
         cartService.applyCoupon(coupon);
-        assertEquals(40.0, cartService.getCouponDiscount());
+
+        CouponService couponService = new CouponService(Cart.get_instance());
+        couponService.calculate();
+        assertEquals(0.0, cartService.getCouponDiscount());
     }
 }
