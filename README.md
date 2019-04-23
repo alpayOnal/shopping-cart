@@ -8,17 +8,14 @@
 
 ## Install
 
-
     docker-compose build
     docker-compose up -d
 
 
 ## Start
-
-   docker-compose exec app
-
-   mvn exec:java -Dexec.mainClass="com.shoppingcart.Main"
-
+   
+    docker-compose exec app
+    mvn exec:java -Dexec.mainClass="com.shoppingcart.Main"
 
 ## Sample Outputs
 
