@@ -17,7 +17,7 @@
     docker-compose exec app
     mvn exec:java -Dexec.mainClass="com.shoppingcart.Main"
 
-### App Output
+#### App Output
 
 ![Alt text](sample_outputs/result.png?raw=true "Cart Info")
 
@@ -33,7 +33,7 @@
 
 
 
-#### Test Coverage Report 
+## Test Coverage Report 
 You can see Coverage report target/site/jacoco/site/index.html.
 #### Sample Output
 ![Alt text](sample_outputs/tests_coverage.png?raw=true "Coverage Report")
