@@ -1,26 +1,25 @@
 # Shopping Cart
------
 
 ## Requirements
------
+
 
 - JDK 1.8_0_211
 - Maven 3.6
 
-Install
------
+## Install
+
 
     docker-compose build
     docker-compose up -d
 
 
-Start
----
+## Start
+
      docker-compose exec app
 
      mvn exec:java -Dexec.mainClass="com.shoppingcart.Main"
 
 
-Sample Outputs
----
+## Sample Outputs
+
 ![Alt text](sample_outputs/result.png?raw=true "Title")
