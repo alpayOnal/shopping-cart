@@ -15,9 +15,9 @@
 
 ## Start
 
-     docker-compose exec app
+   docker-compose exec app
 
-     mvn exec:java -Dexec.mainClass="com.shoppingcart.Main"
+   mvn exec:java -Dexec.mainClass="com.shoppingcart.Main"
 
 
 ## Sample Outputs
